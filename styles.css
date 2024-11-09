@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+    --main-color: #cc0088;
+}
+
+body {
+    background: linear-gradient(135deg, #ffffff, #cccccc);
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+}
+
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button, input {
+    border: 1px solid var(--main-color);
+    background-color: #cc0088;
+    padding: 3px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+
+button i, input i {
+    margin: 0;
+    padding: 0;
+}
+
+input[type=file] {
+    padding: 2px;
+}
+
+button:hover, input:hover {
+    background-color: #ffffff;
+    color: #cc0088;
+}
+
+.controls-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+#play, #pause {
+    font-size: 24px;
+    padding: 10px 20px;
+}
+
+#addButtons button {
+    margin: 2px;
+}
+
+/* hover effect for add buttons */
+#addButtons button:hover {
+    background-color: #ffffff;
+    color: #cc0088;
+}
+
+#tracks {
+    margin: 0;
+}
+
+#tracks > div {
+    display: flex;
+    background-color: #cccccc;
+    border: 2px solid #cc0088;
+    height: 80px;
+    padding: 0px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+#tracks > div h2 {
+    margin: 0 10px 0 0;
+}
+
+/* track items */
+#tracks > div > div:not(.volume-container) {
+    background: linear-gradient(90deg, #cc0088aa, #cc0088);
+    color: #ffffff;
+    padding: 2px 5px 2px 10px;
+    margin: 0px 0px 5px 5px;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 25px; 
+    word-wrap: break-word; 
+    text-align: center;
+}
+
+/* hover effect with cursor and on touchpad */
+#tracks > div > div:hover, #tracks > div > div:focus {
+    background-color: #ffffff;
+    color: #cc0088;
+}
+
+#tracks > div > div:first-of-type:not(.volume-container) {
+    margin: 0 0 5px 5px;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background: linear-gradient(90deg, #cc88ee, #cc88eeaa);
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.volume-label {
+    font-size: 1.1rem;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; 
+    height: 12px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    opacity: 0.7;
+    outline: none;
+    background-color: #cccccc;
+}
+
+.volume-slider:hover {
+    opacity: 1;
+}
+
+/* here I added some styling for firefox to fit the theme better */
+/*help from: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.volume-slider::-moz-range-track {
+    background: #e0e0e0;
+    height: 8px;
+    border-radius: 5px;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 17px;
+    height: 17px;
+    background: #cc0088;
+    border: 2px solid #ffffff; 
+}
+
+#recordingStatus {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+@media (min-width: 1100px) {
+    #tracks > div {
+        height: 85px;
+    }
+    #tracks > div h2 {
+        margin: 20px 10px 0 0;
+        font-size: 30px;
+    }
+
+    #tracks > div > div:not(.volume-container) {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    button, input {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    button, input {
+        font-size: 10px;
+        padding: 3px;
+    }
+
+
+    #tracks > div {
+        display: block;
+        flex-direction: column;
+        min-height: auto;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    #tracks > div > div:not(.volume-container) {
+        font-size: 0.8rem;
+        padding: 2px 5px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .volume-container {
+        flex-direction: row;
+        justify-content: space-around;
+        order: 1;
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .volume-label {
+        font-size: 0.9rem;
+        width: auto;
+    }
+
+    .volume-slider {
+        width: 80%;
+        margin: 0 10px;
+    }
+
+    #play, #pause {
+        font-size: 14px;
+        padding: 3px;
+    }
+
+    .controls-container {
+        gap: 5px;
+    }
+}
+
